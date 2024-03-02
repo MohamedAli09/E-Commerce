@@ -44,9 +44,17 @@ export default function App() {
           element: <Register />,
         },
         {
-          path: "login",
+          path: "/E-Commerce",
           element: <Login />,
         },
+        {
+          path: "login",
+          element: <Login />,
+
+        },
+
+
+
         {
           path : "forgetpassword",
           element : <ForgetPassword/>
