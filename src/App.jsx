@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import NavBar from "./components/NavBar/NavBar";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
-import Products from "./components/Products/Products";
-import Cart from "./components/Cart/Cart";
+ import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
-import { useEffect } from "react";
+import Brands from "./components/Brands/Brands";
+ import { useEffect } from "react";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { tokenContext } from "./Context/TokenContext";
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 export default function App() {
   let { token, setToken } = useContext(tokenContext);
 
@@ -42,11 +42,12 @@ export default function App() {
           path: "login",
           element: <Login />,
         },
+       
         {
-          path: "products",
+          path: "brands",
           element: (
             <ProtectedRoutes>
-              <Products />
+              <Brands />
             </ProtectedRoutes>
           ),
         },
@@ -60,6 +61,14 @@ export default function App() {
           ),
         },
         {
+          path: "details/:id",
+          element: (
+            <ProtectedRoutes>
+              <ProductDetails />
+            </ProtectedRoutes>
+          ),
+        },
+        {
           path: "*",
           element: <NotFound />,
         },
@@ -69,3 +78,4 @@ export default function App() {
 
   return <RouterProvider router={routes}></RouterProvider>;
 }
+

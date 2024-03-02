@@ -13,9 +13,9 @@ code {
 }
 
 .card {
-   transition: box-shadow 0.4s ease;
+  transition: box-shadow 0.3s ease; /* Add a transition to the box-shadow property */
 }
 
-.card:hover{
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
+.card:hover {
+  box-shadow: 0 8px 16px rgba(189, 203, 81, 0.5);  }
+  
