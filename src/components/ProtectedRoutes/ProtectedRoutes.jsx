@@ -7,7 +7,7 @@ export default function ProtectedRoutes(porps) {
  if(localStorage.getItem("userToken")){
      return porps.children
  }else{
-    return <Navigate to="./login" />
+    return <Navigate to="/E-Commerce/login" />
  }
 }
   
