@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/E-Commerce/static/css/main.be0db923.css",
-    "main.js": "/E-Commerce/static/js/main.d3f4359a.js",
+    "main.js": "/E-Commerce/static/js/main.0948fd2a.js",
     "static/media/person-flying-with-shopping-bags.jpg": "/E-Commerce/static/media/person-flying-with-shopping-bags.46b094ffa5d6c98c48e9.jpg",
     "static/media/markus-spiske-5UJbKYUjFCk-unsplash.jpg": "/E-Commerce/static/media/markus-spiske-5UJbKYUjFCk-unsplash.c2156ec5487463d24623.jpg",
     "static/media/Wavy_Bus-24_Single-10.jpg": "/E-Commerce/static/media/Wavy_Bus-24_Single-10.efa77955fe9b197ed398.jpg",
@@ -31,10 +31,10 @@
     "static/media/slick.woff": "/E-Commerce/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/E-Commerce/index.html",
     "main.be0db923.css.map": "/E-Commerce/static/css/main.be0db923.css.map",
-    "main.d3f4359a.js.map": "/E-Commerce/static/js/main.d3f4359a.js.map"
+    "main.0948fd2a.js.map": "/E-Commerce/static/js/main.0948fd2a.js.map"
   },
   "entrypoints": [
     "static/css/main.be0db923.css",
-    "static/js/main.d3f4359a.js"
+    "static/js/main.0948fd2a.js"
   ]
 }
