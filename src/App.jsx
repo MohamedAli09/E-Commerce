@@ -12,6 +12,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { tokenContext } from "./Context/TokenContext";
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
+import ForgetPassword from "./components/ForgetPassword/ForgetPassword";
+import Verify from "./components/Verify/Verify";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 export default function App() {
   let { token, setToken } = useContext(tokenContext);
 
@@ -41,6 +44,18 @@ export default function App() {
         {
           path: "login",
           element: <Login />,
+        },
+        {
+          path : "forgetpassword",
+          element : <ForgetPassword/>
+        },
+        {
+          path : "verify",
+          element : <Verify/>
+        },
+        {
+          path: "resetpassword",
+          element: <ResetPassword/>
         },
        
         {

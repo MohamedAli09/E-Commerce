@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "./Login.module.css";
+import styles from "./ForgetPassword.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import loginImage from "../../Assets/Imgs/signin-g.svg";
+import loginImage from "../../Assets/Imgs/fp-g.svg";
 import { tokenContext } from "../../Context/TokenContext";
 import { useContext } from "react";
 
-export default function Login() {
+export default function ForgetPassword() {
   let { token, setToken } = useContext(tokenContext);
   const [erorrMessage, setErorrMessage] = useState(null);
   const [isloading, setIsloading] = useState(false);
@@ -17,17 +17,11 @@ export default function Login() {
 
   let mySchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string()
-      .required("Password is required")
-      .matches(
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-        "Password must contain at least 8 characters, including UPPER/lowercase and numbers"
-      ),
-  });
+  }); 
   let formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
+      
     },
     validationSchema: mySchema,
     onSubmit: (values) => {
@@ -37,19 +31,22 @@ export default function Login() {
   async function formLogin(values) {
     setIsloading(true);
     return await axios
-      .post("https://ecommerce.routemisr.com/api/v1/auth/signin", values)
+      .post(
+        "https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords",
+        values
+      )
       .then((data) => {
         //save token in local storage
-        localStorage.setItem("userToken", data.data.token);
+        // localStorage.setItem("userToken", data.data.token);
 
         //set token in context
-        setToken(data.data.token);
+        // setToken(data.data.token);
 
-        navigate("/");
+        navigate("/verify");
         setIsloading(false);
       })
       .catch((error) => {
-        // console.log(error.response.data.message);
+        console.log(error.response.data.message);
         setErorrMessage(error.response.data.message);
         setIsloading(false);
       });
@@ -70,9 +67,9 @@ export default function Login() {
           <div className="col-12 col-md-11 col-lg-5 order-lg-1 order-2 offset-lg-1  ">
             <div className="w-75 mx-auto">
               <form action="" onSubmit={formik.handleSubmit}>
-                <h2 className="fs-2">Sign in to FreshCart</h2>
+                <h2 className="fs-2">Reset Your Password</h2>
                 <p className={styles.fs8}>
-                  Welcome back to FreshCart! Enter your email to get started.
+                  Reset password and verify.
                 </p>
 
                 <input
@@ -93,47 +90,11 @@ export default function Login() {
                 ) : null}
                 <div className="mb-3"></div>
 
-                <input
-                  onChange={formik.handleChange}
-                  value={formik.values.password}
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                  className=" form-control "
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.password && formik.errors.password ? (
-                  <div className={`${styles.colorDanger} ps-1`}>
-                    {" "}
-                    {formik.errors.password}{" "}
-                  </div>
-                ) : null}
-                <div className="mb-3"></div>
-
-                <div className="d-flex justify-content-between">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label className={`form-check-label ${styles.textsecondary}`} htmlFor="flexCheckDefault">
-                      Remember me
-                    </label>
-                  </div>
-                  <div>
-                   <span className={`${styles.textsecondary}`}>Forgot password?</span> 
-                    <Link to="/forgetpassword" className=" ms-2 text-decoration-none">Reset It</Link>
-                  </div>
-                </div>
-
                 {isloading ? (
                   <div className="pt-2 spinner-border text-primary "></div>
                 ) : (
                   <button type="submit" className="pt-2 btn btn-primary w-100">
-                    Login
+                    Reset Password
                   </button>
                 )}
               </form>
