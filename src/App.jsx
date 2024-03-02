@@ -25,8 +25,10 @@ export default function App() {
   }, []);
 
   let routes = createBrowserRouter([
+    
     {
       path: "",
+      basename: "E-Commerce",
       element: <Layout />,
       children: [
         {
