@@ -1,70 +1,195 @@
-# Getting Started with Create React App
+# React E-Commerce Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+1. [Contexts and Components Setup](#contexts-and-components-setup)
+2. [Navbar Component](#navbar-component)
+3. [NotFound Component](#notfound-component)
+4. [ProductDetails Component](#productdetails-component)
+  
+5. [ProtectedRoutes Component](#protectedroutes-component)
+    
+6. [Register Component](#register-component)
+ 
+7. [ResetNewPassword Component](#resetnewpassword-component)
+ 
+8. [Verify Component](#verify-component)
+  
+9. [App Component](#app-component)
+ 
+10. [Additional Notes](#additional-notes)
 
-In the project directory, you can run:
+## 1. Contexts and Components Setup
 
-### `npm start`
+**Files:**
+- `src/Context/TokenContext.js`
+- `src/Context/CartContext.js`
+- `src/components/Layout/Layout.js`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Explanation:**
+- **Contexts:**
+  - `TokenContext`: Manages the user authentication token.
+  - `CartContext`: Manages shopping cart data.
+- **Layout Component:**
+  - Initializes React Router and defines routes for different parts of the application.
+  - Utilizes the `ProtectedRoutes` component to secure specific routes based on user authentication.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. Navbar Component
 
-### `npm test`
+**File:**
+- `src/components/Navbar/Navbar.js`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Explanation:**
+- **Navigation:**
+  - Displays different navigation links based on user authentication status.
+  - Shows the number of items in the shopping cart when authenticated.
+- **Logout Functionality:**
+  - Implements a logout function to remove the user token from local storage.
 
-### `npm run build`
+## 3. NotFound Component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**File:**
+- `src/components/NotFound/NotFound.js`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Explanation:**
+- **Visuals:**
+  - Renders a visually appealing 404 image when users reach an undefined route.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 4. ProductDetails Component
 
-### `npm run eject`
+**File:**
+- `src/components/ProductDetails/ProductDetails.js`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Explanation:**
+- **Data Fetching:**
+  - Retrieves product details using Axios and displays them once fetched.
+  - Uses a loading spinner while waiting for the data.
+- **Add to Cart:**
+  - Utilizes the `addToCart` function from `CartContext` to add products to the shopping cart.
+  
+## 4. ProductDetails Component (Continued)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Explanation:**
+- **Product Details Display:**
+  - Fetches detailed information about a specific product based on the provided ID.
+  - Displays product details, including image, name, price, and description.
+- **Loading State:**
+  - Utilizes a loading spinner (ThreeDots) while waiting for the product details to be fetched.
+- **Add to Cart Functionality:**
+  - Provides buttons to select different sizes of the product.
+  - Allows users to add the selected product to the shopping cart by clicking the "Add to Cart" button.
+- **Additional Information:**
+  - Displays product code, availability, type (e.g., Fruits), and shipping details.
+- **Share Dropdown:**
+  - Includes a dropdown menu for sharing the product on social media platforms (Facebook, Twitter, Instagram).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 5. ProtectedRoutes Component 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**File:**
+- `src/components/ProtectedRoutes/ProtectedRoutes.js`
 
-## Learn More
+**Explanation:**
+- **Dependencies:**
+  - Utilizes the `useNavigate` hook from React Router for navigation.
+  - Depends on the `tokenContext` for managing user authentication.
+- **Functionality:**
+  - Checks for the existence of a user token in local storage.
+  - Renders child components/routes if the user is authenticated; otherwise, redirects to the login page using `Navigate`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 5. ProtectedRoutes Component (Continued)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+...
 
-### Code Splitting
+## 6. Register Component 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**File:**
+- `src/components/Register/Register.js`
 
-### Analyzing the Bundle Size
+**Explanation:**
+- **Dependencies:**
+  - Utilizes `useFormik` for form state management and validation.
+  - Employs Yup for defining form validation schema.
+  - Depends on Axios for making HTTP requests.
+- **Functionality:**
+  - Captures user input for name, email, password, re-password, and phone.
+  - Validates form inputs according to predefined rules.
+  - Submits a POST request to the backend for user registration.
+  - Navigates to the login page upon successful registration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 6. Register Component (Continued)
 
-### Making a Progressive Web App
+...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 7. ResetNewPassword Component 
 
-### Advanced Configuration
+**File:**
+- `src/components/ResetPassword/ResetNewPassword.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Explanation:**
+- **Dependencies:**
+  - Similar to Register, uses `useFormik` and Yup.
+  - Depends on Axios for making the PUT request.
+- **Functionality:**
+  - Handles user input for email and new password.
+  - Validates the form inputs.
+  - Sends a PUT request to the backend to reset the user's password.
+  - Navigates to the login page upon successful password reset.
 
-### Deployment
+## 7. ResetNewPassword Component (Continued)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+...
 
-### `npm run build` fails to minify
+## 8. Verify Component 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**File:**
+- `src/components/Verify/Verify.js`
+
+**Explanation:**
+- **Dependencies:**
+  - Uses `useFormik` and Yup for form handling and validation.
+  - Utilizes Axios for making POST requests.
+- **Functionality:**
+  - Manages user input for the reset code.
+  - Validates the input using Yup schema.
+  - Sends a POST request to verify the reset code.
+  - Navigates to the password reset page upon successful verification.
+
+## 8. Verify Component (Continued)
+
+...
+
+## 9. App Component  
+
+**File:**
+- `src/App.js`
+
+**Explanation:**
+- **Dependencies:**
+  - Utilizes various React components, including `Layout`, `Home`, `Register`, `Login`, etc.
+  - Depends on React Router for managing application routes.
+- **Initialization:**
+  - Initializes React Router and defines routes for different parts of the application.
+  - Checks for the existence of a user token in local storage to maintain user authentication across sessions.
+- **Context Usage:**
+  - Uses the `tokenContext` to manage user authentication tokens.
+
+## 9. App Component (Continued)
+
+...
+
+## Additional Notes
+
+- **Styling:**
+  - The application employs the `styles` module for styling components. You can find these styles in respective CSS files (e.g., `NotFound.module.css`).
+- **External Libraries:**
+  - Axios: Used for making HTTP requests.
+  - Yup: Used for defining form validation schemas.
+  - React Query: Utilized in comments (not explained) for fetching product details.
+- **Routing:**
+  - React Router is extensively used for navigation and managing different parts of the application.
+- **State Management:**
+  - React Context API is used for managing global states related to user authentication and shopping cart.
+- **Components Structure:**
+  - The components are organized into folders based on their functionality (e.g., Navbar, NotFound, ProductDetails).
+- **ProtectedRoutes:**
+  - Ensures that certain routes are accessible only when the user is authenticated, enhancing the application's security.
