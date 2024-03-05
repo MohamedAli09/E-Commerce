@@ -69,7 +69,7 @@ Live Demo:
 - **Add to Cart:**
   - Utilizes the `addToCart` function from `CartContext` to add products to the shopping cart.
   
-## 4. ProductDetails Component (Continued)
+## 4. ProductDetails Component 
 
 **Explanation:**
 - **Product Details Display:**
@@ -98,7 +98,7 @@ Live Demo:
   - Checks for the existence of a user token in local storage.
   - Renders child components/routes if the user is authenticated; otherwise, redirects to the login page using `Navigate`.
 
-## 5. ProtectedRoutes Component (Continued)
+## 5. ProtectedRoutes Component 
 
 ...
 
@@ -137,7 +137,7 @@ Live Demo:
   - Sends a PUT request to the backend to reset the user's password.
   - Navigates to the login page upon successful password reset.
 
-## 7. ResetNewPassword Component (Continued)
+## 7. ResetNewPassword Component 
 
 ...
 
@@ -156,10 +156,7 @@ Live Demo:
   - Sends a POST request to verify the reset code.
   - Navigates to the password reset page upon successful verification.
 
-## 8. Verify Component (Continued)
-
-...
-
+ 
 ## 9. App Component  
 
 **File:**
@@ -174,10 +171,7 @@ Live Demo:
   - Checks for the existence of a user token in local storage to maintain user authentication across sessions.
 - **Context Usage:**
   - Uses the `tokenContext` to manage user authentication tokens.
-
-## 9. App Component (Continued)
-
-...
+ 
 
 ## Additional Notes
 
