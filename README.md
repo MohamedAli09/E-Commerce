@@ -98,9 +98,7 @@ Live Demo:
   - Checks for the existence of a user token in local storage.
   - Renders child components/routes if the user is authenticated; otherwise, redirects to the login page using `Navigate`.
 
-## 5. ProtectedRoutes Component 
-
-...
+ 
 
 ## 6. Register Component 
 
@@ -118,9 +116,7 @@ Live Demo:
   - Submits a POST request to the backend for user registration.
   - Navigates to the login page upon successful registration.
 
-## 6. Register Component (Continued)
-
-...
+ 
 
 ## 7. ResetNewPassword Component 
 
@@ -137,9 +133,7 @@ Live Demo:
   - Sends a PUT request to the backend to reset the user's password.
   - Navigates to the login page upon successful password reset.
 
-## 7. ResetNewPassword Component 
-
-...
+ 
 
 ## 8. Verify Component 
 
